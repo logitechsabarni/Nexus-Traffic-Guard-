@@ -649,7 +649,8 @@ if weather_data:
     visibility  = cur.get("visibility", 10000)
     pressure    = cur.get("surface_pressure", 1013)
     weather_desc = WMO_CODES.get(w_code, "Unknown")
-    # precipitation: use current value; if 0, derive estimate from weather_code
+
+    # ── PRECIPITATION FIX ────────────────────────────────────────────────────
     raw_precip = cur.get("precipitation", 0) or 0
     _wcode_precip = {
         51: 0.3, 53: 0.8, 55: 2.0,
@@ -658,17 +659,25 @@ if weather_data:
         80: 2.5, 81: 6.0, 82: 15.0,
         95: 8.0,
     }
-    precip = raw_precip if raw_precip > 0 else _wcode_precip.get(w_code, 0.0)
-    # Also try to pull the first non-zero hourly value as fallback
+    # Try current value first, then scan hourly around current hour, then weather_code fallback
+    precip = raw_precip if raw_precip > 0 else 0.0
     if precip == 0 and weather_data and "hourly" in weather_data:
         try:
+            now_idx = datetime.now().hour
             hrly_p = weather_data["hourly"].get("precipitation", [])
-            for p in hrly_p[:3]:
-                if p and p > 0:
-                    precip = round(p, 1)
+            # Check current hour ±2 hours for any precipitation
+            for offset in [0, 1, -1, 2, -2, 3]:
+                idx = now_idx + offset
+                if 0 <= idx < len(hrly_p) and hrly_p[idx] and hrly_p[idx] > 0:
+                    precip = round(hrly_p[idx], 1)
                     break
         except:
             pass
+    # Final fallback: derive from weather code
+    if precip == 0:
+        precip = _wcode_precip.get(w_code, 0.0)
+    # ── END PRECIPITATION FIX ────────────────────────────────────────────────
+
 else:
     temp=feels_like=humidity=25; wind_speed=precip=0; w_code=0
     visibility=10000; pressure=1013; weather_desc="N/A"; wind_dir=0
