@@ -1181,20 +1181,31 @@ with tabs[2]:
             hover_data={"congestion":True,"volume":True,"speed":True,"lat":False,"lon":False},
             size_max=30,
         )
-        _map_axis = dict(
-            tickfont=dict(family="JetBrains Mono", size=9, color="#556677"),
-            showgrid=True,
-            gridcolor="rgba(0,255,225,0.05)",
-            zeroline=False,
-        )
         fig_map.update_layout(
-            **PLOT_LAYOUT, height=380,
+            template="plotly_dark",
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
+            font=dict(family="JetBrains Mono", color="#88aabb"),
+            margin=dict(l=0, r=0, t=20, b=30),
+            height=380,
             coloraxis_colorbar=dict(
-                title="Cong%", tickfont=dict(family="JetBrains Mono",size=8,color="#667788"),
-                titlefont=dict(size=9,color="#667788")
+                title=dict(text="Cong%", font=dict(size=9, color="#667788")),
+                tickfont=dict(family="JetBrains Mono", size=8, color="#667788"),
             ),
-            xaxis=dict(title="Longitude", **_map_axis),
-            yaxis=dict(title="Latitude", **_map_axis),
+            xaxis=dict(
+                title=dict(text="Longitude", font=dict(size=9, color="#445566")),
+                tickfont=dict(family="JetBrains Mono", size=9, color="#556677"),
+                showgrid=True,
+                gridcolor="rgba(0,255,225,0.05)",
+                zeroline=False,
+            ),
+            yaxis=dict(
+                title=dict(text="Latitude", font=dict(size=9, color="#445566")),
+                tickfont=dict(family="JetBrains Mono", size=9, color="#556677"),
+                showgrid=True,
+                gridcolor="rgba(0,255,225,0.05)",
+                zeroline=False,
+            ),
         )
         # Add incident markers
         for inc in traffic["incidents"][:5]:
