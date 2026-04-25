@@ -904,7 +904,7 @@ with tabs[0]:
             hovertemplate="<b>%{x}</b><br>Congestion: %{y}%<br>Volume: %{customdata[0]} veh/hr<br>Speed: %{customdata[1]} km/h<extra></extra>"
         ))
         fig2.update_layout(**PLOT_LAYOUT, height=200,
-            xaxis=dict(showgrid=False, zeroline=False, tickfont=dict(family="JetBrains Mono",size=9,color="#556677"), tickfont=dict(family="JetBrains Mono",size=9,color="#556677")),
+            xaxis=dict(showgrid=False, zeroline=False, tickfont=dict(family="JetBrains Mono",size=9,color="#556677")),
             yaxis=GRID(range=[0,125]),
             showlegend=False)
         st.plotly_chart(fig2, use_container_width=True, config={"displayModeBar": False})
@@ -1054,7 +1054,7 @@ with tabs[1]:
         ))
         fig_v.update_layout(**PLOT_LAYOUT, height=250,
             xaxis=NOGRID(nticks=12),
-            yaxis=dict(showgrid=True, gridcolor="rgba(0,255,225,0.05)", zeroline=False, tickfont=dict(family="JetBrains Mono",size=9,color="#556677"), tickfont=dict(family="JetBrains Mono",size=9,color="#556677")),
+            yaxis=dict(showgrid=True, gridcolor="rgba(0,255,225,0.05)", zeroline=False, tickfont=dict(family="JetBrains Mono",size=9,color="#556677")),
             showlegend=False)
         st.plotly_chart(fig_v, use_container_width=True, config={"displayModeBar": False})
 
