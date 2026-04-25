@@ -1181,14 +1181,20 @@ with tabs[2]:
             hover_data={"congestion":True,"volume":True,"speed":True,"lat":False,"lon":False},
             size_max=30,
         )
+        _map_axis = dict(
+            tickfont=dict(family="JetBrains Mono", size=9, color="#556677"),
+            showgrid=True,
+            gridcolor="rgba(0,255,225,0.05)",
+            zeroline=False,
+        )
         fig_map.update_layout(
             **PLOT_LAYOUT, height=380,
             coloraxis_colorbar=dict(
                 title="Cong%", tickfont=dict(family="JetBrains Mono",size=8,color="#667788"),
                 titlefont=dict(size=9,color="#667788")
             ),
-            xaxis=dict(title="Longitude", **TICK, showgrid=True, gridcolor="rgba(0,255,225,0.05)"),
-            yaxis=dict(title="Latitude", **TICK, showgrid=True, gridcolor="rgba(0,255,225,0.05)"),
+            xaxis=dict(title="Longitude", **_map_axis),
+            yaxis=dict(title="Latitude", **_map_axis),
         )
         # Add incident markers
         for inc in traffic["incidents"][:5]:
