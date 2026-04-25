@@ -3,7 +3,6 @@ import requests
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
-import plotly.express as px
 from datetime import datetime, timedelta
 import time
 import math
@@ -1154,48 +1153,81 @@ with tabs[2]:
                 "speed": inter["avg_speed"],
             })
         df_map = pd.DataFrame(map_data)
-        fig_map = px.scatter(df_map, x="lon", y="lat",
-            size="volume", color="congestion",
-            color_continuous_scale=[[0,"#00ff88"],[0.4,"#ffaa00"],[1,"#ff3060"]],
-            range_color=[0,100],
-            hover_name="name",
-            hover_data={"congestion":True,"volume":True,"speed":True,"lat":False,"lon":False},
-            size_max=30,
-        )
-        fig_map.update_layout(
-            paper_bgcolor="rgba(0,0,0,0)",
-            plot_bgcolor="rgba(0,0,0,0)",
-            height=380,
-            margin=dict(l=0,r=0,t=20,b=30),
-            font=dict(family="JetBrains Mono", color="#88aabb"),
-            coloraxis_colorbar=dict(
-                title="Cong%",
-                tickfont=dict(family="JetBrains Mono",size=8,color="#667788"),
-                titlefont=dict(size=9,color="#667788")
+
+        # Build color list from congestion values
+        def cong_to_color(c):
+            if c < 40:   return "#00ff88"
+            elif c < 70: return "#ffaa00"
+            else:        return "#ff3060"
+
+        # Scale marker sizes from volume
+        vols = [d["volume"] for d in map_data]
+        v_min, v_max = min(vols), max(vols) if max(vols) > min(vols) else min(vols)+1
+        sizes = [12 + int((v - v_min) / (v_max - v_min) * 24) for v in vols]
+
+        fig_map = go.Figure()
+
+        # Main intersection bubbles
+        fig_map.add_trace(go.Scatter(
+            x=[d["lon"] for d in map_data],
+            y=[d["lat"] for d in map_data],
+            mode="markers+text",
+            marker=dict(
+                size=sizes,
+                color=[d["congestion"] for d in map_data],
+                colorscale=[[0,"#00ff88"],[0.4,"#ffaa00"],[1,"#ff3060"]],
+                cmin=0, cmax=100,
+                showscale=True,
+                colorbar=dict(
+                    title="Cong %",
+                    thickness=12, len=0.7,
+                    tickfont=dict(family="JetBrains Mono",size=8,color="#667788"),
+                    title_font=dict(size=9,color="#667788"),
+                ),
+                line=dict(color="rgba(0,0,0,0.4)", width=1),
+                opacity=0.85,
             ),
-        )
-        fig_map.update_xaxes(
-            title="Longitude",
-            showgrid=True, gridcolor="rgba(0,255,225,0.05)", zeroline=False,
-            tickfont=dict(family="JetBrains Mono",size=9,color="#556677"),
-            title_font=dict(size=9,color="#445566"),
-        )
-        fig_map.update_yaxes(
-            title="Latitude",
-            showgrid=True, gridcolor="rgba(0,255,225,0.05)", zeroline=False,
-            tickfont=dict(family="JetBrains Mono",size=9,color="#556677"),
-            title_font=dict(size=9,color="#445566"),
-        )
-        # Add incident markers
+            text=[d["name"].split("×")[0] for d in map_data],
+            textposition="top center",
+            textfont=dict(family="JetBrains Mono", size=8, color="#889aaa"),
+            customdata=[[d["name"], d["congestion"], d["volume"], d["speed"]] for d in map_data],
+            hovertemplate=(
+                "<b>%{customdata[0]}</b><br>"
+                "Congestion: %{customdata[1]}%<br>"
+                "Volume: %{customdata[2]} veh/hr<br>"
+                "Speed: %{customdata[3]} km/h<extra></extra>"
+            ),
+            showlegend=False,
+        ))
+
+        # Incident markers
         for inc in traffic["incidents"][:5]:
             fig_map.add_trace(go.Scatter(
                 x=[lon + inc["lon_offset"]],
                 y=[lat + inc["lat_offset"]],
                 mode="markers",
-                marker=dict(symbol="x", size=12, color="#ff3060", line=dict(width=2,color="#ff6080")),
-                name=inc["type"], showlegend=False,
-                hovertemplate=f"{inc['type']}<br>{inc['road']}<br>+{inc['delay']}min<extra></extra>"
+                marker=dict(symbol="x", size=14, color="#ff3060",
+                            line=dict(width=2, color="#ff6080")),
+                showlegend=False,
+                hovertemplate=f"{inc['type']}<br>{inc['road']}<br>+{inc['delay']}min<extra></extra>",
             ))
+
+        fig_map.update_layout(
+            **PLOT_LAYOUT,
+            height=400,
+            xaxis=dict(
+                title="Longitude",
+                showgrid=True, gridcolor="rgba(0,255,225,0.05)", zeroline=False,
+                tickfont=dict(family="JetBrains Mono", size=9, color="#556677"),
+                title_font=dict(size=9, color="#445566"),
+            ),
+            yaxis=dict(
+                title="Latitude",
+                showgrid=True, gridcolor="rgba(0,255,225,0.05)", zeroline=False,
+                tickfont=dict(family="JetBrains Mono", size=9, color="#556677"),
+                title_font=dict(size=9, color="#445566"),
+            ),
+        )
         st.plotly_chart(fig_map, use_container_width=True, config={"displayModeBar": False})
 
     with r2:
