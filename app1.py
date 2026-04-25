@@ -1163,13 +1163,28 @@ with tabs[2]:
             size_max=30,
         )
         fig_map.update_layout(
-            **PLOT_LAYOUT, height=380,
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
+            height=380,
+            margin=dict(l=0,r=0,t=20,b=30),
+            font=dict(family="JetBrains Mono", color="#88aabb"),
             coloraxis_colorbar=dict(
-                title="Cong%", tickfont=dict(family="JetBrains Mono",size=8,color="#667788"),
+                title="Cong%",
+                tickfont=dict(family="JetBrains Mono",size=8,color="#667788"),
                 titlefont=dict(size=9,color="#667788")
             ),
-            xaxis=dict(title="Longitude", tickfont=dict(family="JetBrains Mono",size=9,color="#556677"), showgrid=True, gridcolor="rgba(0,255,225,0.05)"),
-            yaxis=dict(title="Latitude", tickfont=dict(family="JetBrains Mono",size=9,color="#556677"), showgrid=True, gridcolor="rgba(0,255,225,0.05)"),
+        )
+        fig_map.update_xaxes(
+            title="Longitude",
+            showgrid=True, gridcolor="rgba(0,255,225,0.05)", zeroline=False,
+            tickfont=dict(family="JetBrains Mono",size=9,color="#556677"),
+            title_font=dict(size=9,color="#445566"),
+        )
+        fig_map.update_yaxes(
+            title="Latitude",
+            showgrid=True, gridcolor="rgba(0,255,225,0.05)", zeroline=False,
+            tickfont=dict(family="JetBrains Mono",size=9,color="#556677"),
+            title_font=dict(size=9,color="#445566"),
         )
         # Add incident markers
         for inc in traffic["incidents"][:5]:
