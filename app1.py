@@ -1699,7 +1699,7 @@ with tabs[5]:
             textfont=dict(family="JetBrains Mono",size=10,color="#000"),
             hovertemplate="%{text}<extra></extra>"
         ))
-        fig_ph.update_layout(**PLOT_LAYOUT, height=120, barmode="stack",
+        fig_ph.update_layout(height=120, barmode="stack",
             xaxis=dict(showgrid=False, zeroline=False, range=[0,100]),
             yaxis=dict(showgrid=False, zeroline=False, tickfont=dict(family="JetBrains Mono",size=9,color="#556677"), showticklabels=False),
             showlegend=False, margin=dict(l=0,r=0,t=10,b=30))
