@@ -1700,7 +1700,7 @@ with tabs[5]:
             hovertemplate="%{text}<extra></extra>"
         ))
         fig_ph.update_layout(**PLOT_LAYOUT, height=120, barmode="stack",
-            xaxis=dict(showgrid=False, zeroline=False, range=[0,100])
+            xaxis=dict(showgrid=False, zeroline=False, range=[0,100]),
             yaxis=dict(showgrid=False, zeroline=False, tickfont=dict(family="JetBrains Mono",size=9,color="#556677"), showticklabels=False),
             showlegend=False, margin=dict(l=0,r=0,t=10,b=30))
         st.plotly_chart(fig_ph, use_container_width=True, config={"displayModeBar": False})
