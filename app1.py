@@ -541,6 +541,17 @@ body{{background:transparent;display:flex;justify-content:center;align-items:cen
 </body></html>"""
 
 # ── Plotly Theme ──────────────────────────────────────────────────────────────
+def TICK(**extra):
+    return dict(tickfont=dict(family="JetBrains Mono", size=9, color="#556677"), **extra)
+
+def GRID(**extra):
+    return dict(showgrid=True, gridcolor="rgba(0,255,225,0.05)", zeroline=False,
+                tickfont=dict(family="JetBrains Mono", size=9, color="#556677"), **extra)
+
+def NOGRID(**extra):
+    return dict(showgrid=False, zeroline=False,
+                tickfont=dict(family="JetBrains Mono", size=9, color="#556677"), **extra)
+
 PLOT_LAYOUT = dict(
     template="plotly_dark",
     paper_bgcolor="rgba(0,0,0,0)",
@@ -548,12 +559,10 @@ PLOT_LAYOUT = dict(
     font=dict(family="JetBrains Mono", color="#88aabb"),
     margin=dict(l=0, r=0, t=20, b=30),
 )
-GRID = dict(showgrid=True, gridcolor="rgba(0,255,225,0.05)", zeroline=False)
-NOGRID = dict(showgrid=False, zeroline=False)
-TICK = dict(tickfont=dict(family="JetBrains Mono", size=9, color="#556677"))
+
 
 def styled_axis(**kwargs):
-    return {**TICK, **kwargs}
+    return dict(tickfont=dict(family='JetBrains Mono', size=9, color='#556677'), **kwargs)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # SIDEBAR
@@ -869,9 +878,9 @@ with tabs[0]:
         fig.update_layout(
             **PLOT_LAYOUT, height=230,
             legend=dict(orientation="h", y=1.08, font=dict(size=9, color="#667788")),
-            xaxis=dict(**NOGRID, **TICK, nticks=12),
-            yaxis=dict(**GRID, **TICK, range=[0,110], title="Congestion %", title_font=dict(size=9,color="#445566")),
-            yaxis2=dict(overlaying="y", side="right", range=[0,100], **TICK, showgrid=False,
+            xaxis=NOGRID(nticks=12),
+            yaxis=GRID(range=[0,110], title="Congestion %", title_font=dict(size=9,color="#445566")),
+            yaxis2=dict(overlaying="y", side="right", range=[0,100], tickfont=dict(family="JetBrains Mono",size=9,color="#556677"), showgrid=False,
                         title="Speed km/h", title_font=dict(size=9,color="#445566")),
             yaxis3=dict(overlaying="y", side="left", range=[0,6000], showgrid=False, showticklabels=False),
         )
@@ -895,8 +904,8 @@ with tabs[0]:
             hovertemplate="<b>%{x}</b><br>Congestion: %{y}%<br>Volume: %{customdata[0]} veh/hr<br>Speed: %{customdata[1]} km/h<extra></extra>"
         ))
         fig2.update_layout(**PLOT_LAYOUT, height=200,
-            xaxis=dict(**NOGRID, **TICK),
-            yaxis=dict(**GRID, **TICK, range=[0,125]),
+            xaxis=dict(showgrid=False, zeroline=False, tickfont=dict(family="JetBrains Mono",size=9,color="#556677"), tickfont=dict(family="JetBrains Mono",size=9,color="#556677")),
+            yaxis=GRID(range=[0,125]),
             showlegend=False)
         st.plotly_chart(fig2, use_container_width=True, config={"displayModeBar": False})
 
@@ -1024,8 +1033,8 @@ with tabs[1]:
         fig_sc.add_annotation(text=f"r = {r_val:.3f}", x=0.05, y=0.95, xref="paper", yref="paper",
             font=dict(size=11,color="#00ffe1",family="JetBrains Mono"), showarrow=False)
         fig_sc.update_layout(**PLOT_LAYOUT, height=300,
-            xaxis=dict(**GRID, **TICK, title="Congestion %", title_font=dict(size=9,color="#445566")),
-            yaxis=dict(**GRID, **TICK, title="Speed km/h", title_font=dict(size=9,color="#445566")),
+            xaxis=GRID(title="Congestion %", title_font=dict(size=9,color="#445566")),
+            yaxis=GRID(title="Speed km/h", title_font=dict(size=9,color="#445566")),
             showlegend=False)
         st.plotly_chart(fig_sc, use_container_width=True, config={"displayModeBar": False})
 
@@ -1044,8 +1053,8 @@ with tabs[1]:
             hovertemplate="<b>%{x}</b><br>Volume: %{y} veh/hr<extra></extra>"
         ))
         fig_v.update_layout(**PLOT_LAYOUT, height=250,
-            xaxis=dict(**NOGRID, **TICK, nticks=12),
-            yaxis=dict(**GRID, **TICK),
+            xaxis=NOGRID(nticks=12),
+            yaxis=dict(showgrid=True, gridcolor="rgba(0,255,225,0.05)", zeroline=False, tickfont=dict(family="JetBrains Mono",size=9,color="#556677"), tickfont=dict(family="JetBrains Mono",size=9,color="#556677")),
             showlegend=False)
         st.plotly_chart(fig_v, use_container_width=True, config={"displayModeBar": False})
 
@@ -1063,8 +1072,8 @@ with tabs[1]:
             hovertemplate="<b>%{x}</b><br>Incidents: %{y}<extra></extra>"
         ))
         fig_i.update_layout(**PLOT_LAYOUT, height=250,
-            xaxis=dict(**NOGRID, **TICK, nticks=12),
-            yaxis=dict(**GRID, **TICK, range=[0,8]),
+            xaxis=NOGRID(nticks=12),
+            yaxis=GRID(range=[0,8]),
             showlegend=False)
         st.plotly_chart(fig_i, use_container_width=True, config={"displayModeBar": False})
 
@@ -1115,9 +1124,9 @@ with tabs[1]:
         yaxis="y2"))
     fig_rf.update_layout(**PLOT_LAYOUT, height=280,
         legend=dict(orientation="h",y=1.08,font=dict(size=9,color="#667788")),
-        xaxis=dict(**NOGRID, **TICK, tickangle=-30),
-        yaxis=dict(**GRID, **TICK, title="Volume", title_font=dict(size=9,color="#445566")),
-        yaxis2=dict(overlaying="y",side="right",range=[0,110],**TICK,showgrid=False,
+        xaxis=NOGRID(tickangle=-30),
+        yaxis=GRID(title="Volume", title_font=dict(size=9,color="#445566")),
+        yaxis2=dict(overlaying="y",side="right",range=[0,110],showgrid=False,tickfont=dict(family="JetBrains Mono",size=9,color="#556677"),
             title="Congestion %",title_font=dict(size=9,color="#445566")),
         barmode="group")
     st.plotly_chart(fig_rf, use_container_width=True, config={"displayModeBar": False})
@@ -1159,8 +1168,8 @@ with tabs[2]:
                 title="Cong%", tickfont=dict(family="JetBrains Mono",size=8,color="#667788"),
                 titlefont=dict(size=9,color="#667788")
             ),
-            xaxis=dict(title="Longitude", **TICK, showgrid=True, gridcolor="rgba(0,255,225,0.05)"),
-            yaxis=dict(title="Latitude", **TICK, showgrid=True, gridcolor="rgba(0,255,225,0.05)"),
+            xaxis=dict(title="Longitude", tickfont=dict(family="JetBrains Mono",size=9,color="#556677"), showgrid=True, gridcolor="rgba(0,255,225,0.05)"),
+            yaxis=dict(title="Latitude", tickfont=dict(family="JetBrains Mono",size=9,color="#556677"), showgrid=True, gridcolor="rgba(0,255,225,0.05)"),
         )
         # Add incident markers
         for inc in traffic["incidents"][:5]:
@@ -1212,8 +1221,8 @@ with tabs[2]:
         colorbar=dict(tickfont=dict(family="JetBrains Mono",size=8,color="#667788"))
     ))
     fig_hm.update_layout(**PLOT_LAYOUT, height=250,
-        xaxis=dict(**NOGRID,**TICK),
-        yaxis=dict(**NOGRID,**TICK))
+        xaxis=NOGRID(),
+        yaxis=NOGRID())
     st.plotly_chart(fig_hm, use_container_width=True, config={"displayModeBar": False})
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -1242,9 +1251,9 @@ with tabs[3]:
                 line=dict(color="#ff3060",width=1.5,dash="dot"), hovertemplate="%{x}: %{y}°C<extra>Temp</extra>"))
             fig_wf.update_layout(**PLOT_LAYOUT, height=280,
                 legend=dict(orientation="h",y=1.1,font=dict(size=9,color="#667788")),
-                xaxis=dict(**NOGRID,**TICK,nticks=16,tickangle=-45),
-                yaxis=dict(**GRID,**TICK,range=[0,110]),
-                yaxis2=dict(overlaying="y",side="right",showgrid=False,**TICK),
+                xaxis=NOGRID(nticks=16,tickangle=-45),
+                yaxis=GRID(range=[0,110]),
+                yaxis2=TICK(overlaying="y",side="right",showgrid=False),
                 yaxis3=dict(overlaying="y",side="right",showgrid=False,showticklabels=False),
             )
             st.plotly_chart(fig_wf, use_container_width=True, config={"displayModeBar": False})
@@ -1274,9 +1283,9 @@ with tabs[3]:
                 hovertemplate="%{x}: %{y}mm<extra>Precip</extra>"))
             fig_7.update_layout(**PLOT_LAYOUT, height=280,
                 legend=dict(orientation="h",y=1.1,font=dict(size=9,color="#667788")),
-                xaxis=dict(**NOGRID,**TICK),
-                yaxis=dict(**GRID,**TICK,title="Temp °C",title_font=dict(size=9,color="#445566")),
-                yaxis2=dict(overlaying="y",side="right",showgrid=False,**TICK,
+                xaxis=NOGRID(),
+                yaxis=GRID(title="Temp °C",title_font=dict(size=9,color="#445566")),
+                yaxis2=dict(overlaying="y",side="right",showgrid=False,tickfont=dict(family="JetBrains Mono",size=9,color="#556677"),
                     title="Precip mm",title_font=dict(size=9,color="#445566")))
             st.plotly_chart(fig_7, use_container_width=True, config={"displayModeBar": False})
 
@@ -1305,8 +1314,8 @@ with tabs[3]:
         colorbar=dict(tickfont=dict(family="JetBrains Mono",size=8,color="#667788"))
     ))
     fig_imp.update_layout(**PLOT_LAYOUT, height=280,
-        xaxis=dict(**NOGRID,**TICK),
-        yaxis=dict(**NOGRID,**TICK))
+        xaxis=NOGRID(),
+        yaxis=NOGRID())
     st.plotly_chart(fig_imp, use_container_width=True, config={"displayModeBar": False})
 
     # AQI trend
@@ -1331,9 +1340,9 @@ with tabs[3]:
             fig_aq.add_hrect(y0=100,y1=400,fillcolor="rgba(255,48,96,0.05)",line_width=0)
             fig_aq.update_layout(**PLOT_LAYOUT, height=240,
                 legend=dict(orientation="h",y=1.1,font=dict(size=9,color="#667788")),
-                xaxis=dict(**NOGRID,**TICK),
-                yaxis=dict(**GRID,**TICK,title="AQI",title_font=dict(size=9,color="#445566")),
-                yaxis2=dict(overlaying="y",side="right",showgrid=False,**TICK,
+                xaxis=NOGRID(),
+                yaxis=GRID(title="AQI",title_font=dict(size=9,color="#445566")),
+                yaxis2=dict(overlaying="y",side="right",showgrid=False,tickfont=dict(family="JetBrains Mono",size=9,color="#556677"),
                     title="PM2.5 µg/m³",title_font=dict(size=9,color="#445566")))
             st.plotly_chart(fig_aq, use_container_width=True, config={"displayModeBar": False})
 
@@ -1644,8 +1653,8 @@ with tabs[5]:
             hovertemplate="%{text}<extra></extra>"
         ))
         fig_ph.update_layout(**PLOT_LAYOUT, height=120, barmode="stack",
-            xaxis=dict(**NOGRID,**TICK,range=[0,100]),
-            yaxis=dict(**NOGRID,showticklabels=False),
+            xaxis=NOGRID(range=[0,100]),
+            yaxis=dict(showgrid=False, zeroline=False, tickfont=dict(family="JetBrains Mono",size=9,color="#556677"), showticklabels=False),
             showlegend=False, margin=dict(l=0,r=0,t=10,b=30))
         st.plotly_chart(fig_ph, use_container_width=True, config={"displayModeBar": False})
 
@@ -1748,8 +1757,8 @@ with tabs[6]:
             hovertemplate="<b>%{x}</b> — %{y}%<extra>"+city2.split(',')[0]+"</extra>"))
         fig_cmp.update_layout(**PLOT_LAYOUT, height=300,
             legend=dict(orientation="h",y=1.1,font=dict(size=10,color="#667788")),
-            xaxis=dict(**NOGRID,**TICK,nticks=12),
-            yaxis=dict(**GRID,**TICK,range=[0,115]))
+            xaxis=NOGRID(nticks=12),
+            yaxis=GRID(range=[0,115]))
         st.plotly_chart(fig_cmp, use_container_width=True, config={"displayModeBar": False})
 
         # Radar comparison
@@ -1791,8 +1800,8 @@ with tabs[7]:
             colorbar=dict(tickfont=dict(family="JetBrains Mono",size=8,color="#667788"))
         ))
         fig_hm.update_layout(**PLOT_LAYOUT, height=280,
-            xaxis=dict(**NOGRID,**TICK,nticks=12),
-            yaxis=dict(**NOGRID,**TICK))
+            xaxis=NOGRID(nticks=12),
+            yaxis=NOGRID())
         st.plotly_chart(fig_hm, use_container_width=True, config={"displayModeBar": False})
 
     with h2:
@@ -1810,9 +1819,9 @@ with tabs[7]:
             hovertemplate="Day %{x}: %{y} incidents<extra></extra>"))
         fig_mt.update_layout(**PLOT_LAYOUT, height=280,
             legend=dict(orientation="h",y=1.1,font=dict(size=9,color="#667788")),
-            xaxis=dict(**NOGRID,**TICK,title="Day of Month",title_font=dict(size=9,color="#445566")),
-            yaxis=dict(**GRID,**TICK,range=[0,110]),
-            yaxis2=dict(overlaying="y",side="right",showgrid=False,**TICK,range=[0,50]))
+            xaxis=NOGRID(title="Day of Month",title_font=dict(size=9,color="#445566")),
+            yaxis=GRID(range=[0,110]),
+            yaxis2=dict(overlaying="y",side="right",showgrid=False,tickfont=dict(family="JetBrains Mono",size=9,color="#556677"),range=[0,50]))
         st.plotly_chart(fig_mt, use_container_width=True, config={"displayModeBar": False})
 
     # Day-of-week analysis
@@ -1833,8 +1842,8 @@ with tabs[7]:
         hovertemplate="<b>%{x}</b><br>Peak: %{y}%<extra></extra>"))
     fig_dow.update_layout(**PLOT_LAYOUT, height=270,
         legend=dict(orientation="h",y=1.08,font=dict(size=9,color="#667788")),
-        xaxis=dict(**NOGRID,**TICK),
-        yaxis=dict(**GRID,**TICK,range=[0,110]),
+        xaxis=NOGRID(),
+        yaxis=GRID(range=[0,110]),
         showlegend=True)
     st.plotly_chart(fig_dow, use_container_width=True, config={"displayModeBar": False})
 
@@ -1939,8 +1948,8 @@ with tabs[8]:
             hovertemplate="%{y}: %{x}<extra></extra>"
         ))
         fig_tc.update_layout(**PLOT_LAYOUT,height=220,
-            xaxis=dict(**NOGRID,**TICK),
-            yaxis=dict(**NOGRID,**TICK),
+            xaxis=NOGRID(),
+            yaxis=NOGRID(),
             showlegend=False)
         st.plotly_chart(fig_tc, use_container_width=True, config={"displayModeBar": False})
 
