@@ -58,7 +58,6 @@ html, body, [class*="css"] {
 #MainMenu, footer, header { visibility: hidden; }
 .block-container { padding: 0.75rem 1.5rem 2rem 1.5rem !important; max-width: 100% !important; }
 
-/* Sidebar */
 section[data-testid="stSidebar"] {
   background: linear-gradient(180deg, #05091a 0%, #030710 100%) !important;
   border-right: 1px solid var(--border) !important;
@@ -68,7 +67,6 @@ section[data-testid="stSidebar"] * { color: var(--hi) !important; }
 section[data-testid="stSidebar"] .stSelectbox label,
 section[data-testid="stSidebar"] .stSlider label { color: var(--lo) !important; }
 
-/* Tabs */
 .stTabs [data-baseweb="tab-list"] {
   gap: 2px;
   background: rgba(0,255,225,0.03);
@@ -94,7 +92,6 @@ section[data-testid="stSidebar"] .stSlider label { color: var(--lo) !important; 
 }
 .stTabs [data-baseweb="tab-panel"] { padding-top: 16px !important; }
 
-/* Cards */
 .nx-card {
   background: linear-gradient(135deg, rgba(11,20,37,0.9) 0%, rgba(7,13,26,0.95) 100%);
   border: 1px solid var(--border);
@@ -119,7 +116,6 @@ section[data-testid="stSidebar"] .stSlider label { color: var(--lo) !important; 
 .nx-card.green { border-color: rgba(0,255,136,0.2); }
 .nx-card.green::before { background: linear-gradient(90deg, transparent, var(--green), transparent); }
 
-/* KPI */
 .kpi { padding: 14px 12px; text-align: center; }
 .kpi-lbl {
   font-family: 'JetBrains Mono', monospace;
@@ -138,7 +134,6 @@ section[data-testid="stSidebar"] .stSlider label { color: var(--lo) !important; 
 .kpi-val.green { background: linear-gradient(135deg, #00ff88, #55ffaa); -webkit-background-clip: text; background-clip: text; }
 .kpi-sub { font-size: 0.68rem; color: var(--lo); margin-top: 3px; font-family: 'JetBrains Mono', monospace; }
 
-/* Section header */
 .sh {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.62rem; letter-spacing: 3px;
@@ -147,7 +142,6 @@ section[data-testid="stSidebar"] .stSlider label { color: var(--lo) !important; 
 }
 .sh::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(0,255,225,0.3), transparent); }
 
-/* Ticker */
 .ticker-outer {
   overflow: hidden;
   background: rgba(0,255,225,0.03);
@@ -169,7 +163,6 @@ section[data-testid="stSidebar"] .stSlider label { color: var(--lo) !important; 
 }
 @keyframes scr { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
-/* Badge */
 .b {
   display:inline-block; padding:2px 8px; border-radius:4px;
   font-size:0.62rem; font-family:'JetBrains Mono',monospace;
@@ -181,11 +174,9 @@ section[data-testid="stSidebar"] .stSlider label { color: var(--lo) !important; 
 .b-info { background:rgba(0,255,225,0.08);  color:var(--c);     border:1px solid rgba(0,255,225,0.3); }
 .b-blue { background:rgba(0,144,255,0.12);  color:var(--c2);    border:1px solid rgba(0,144,255,0.35); }
 
-/* Progress bar */
 .pb-bg { background:rgba(255,255,255,0.06); border-radius:4px; height:6px; overflow:hidden; margin: 3px 0 10px; }
 .pb-fg { height:100%; border-radius:4px; transition:width 1s ease; }
 
-/* Incident row */
 .inc {
   background: rgba(255,48,96,0.06);
   border: 1px solid rgba(255,48,96,0.15);
@@ -193,7 +184,6 @@ section[data-testid="stSidebar"] .stSlider label { color: var(--lo) !important; 
   border-radius: 8px; padding: 10px 13px; margin-bottom: 8px;
 }
 
-/* Alert */
 .alert {
   border-radius: 10px; padding: 12px 16px; margin-bottom: 12px;
   display:flex; align-items:center; gap:12px;
@@ -202,7 +192,6 @@ section[data-testid="stSidebar"] .stSlider label { color: var(--lo) !important; 
 .alert-warn { background:rgba(255,170,0,0.08); border:1px solid rgba(255,170,0,0.35); }
 .alert-info { background:rgba(0,255,225,0.06); border:1px solid rgba(0,255,225,0.25); }
 
-/* Pulse */
 .pulse {
   display:inline-block; width:7px; height:7px; border-radius:50%;
   background:var(--green); margin-right:5px;
@@ -213,23 +202,19 @@ section[data-testid="stSidebar"] .stSlider label { color: var(--lo) !important; 
   50%{opacity:.8;transform:scale(1.2);box-shadow:0 0 0 5px rgba(0,255,136,0);}
 }
 
-/* Stagger fade */
 @keyframes fu { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
 .fu { animation: fu 0.5s ease both; }
 
-/* Stat compare */
-.cmp { 
+.cmp {
   display:flex; justify-content:space-between; align-items:center;
   padding:8px 0; border-bottom:1px solid rgba(0,255,225,0.07);
   font-family:'JetBrains Mono',monospace; font-size:.75rem;
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar { width:4px; height:4px; }
 ::-webkit-scrollbar-track { background:transparent; }
 ::-webkit-scrollbar-thumb { background:rgba(0,255,225,0.2); border-radius:4px; }
 
-/* AI chat bubble */
 .ai-msg {
   background:linear-gradient(135deg,rgba(0,90,255,0.1),rgba(176,96,255,0.08));
   border:1px solid rgba(176,96,255,0.2); border-radius:10px; padding:12px 15px;
@@ -241,7 +226,6 @@ section[data-testid="stSidebar"] .stSlider label { color: var(--lo) !important; 
   font-size:.82rem; text-align:right; color:var(--c);
 }
 
-/* Prediction band */
 .pred-band {
   display:grid; grid-template-columns:repeat(6,1fr); gap:8px; margin-bottom:16px;
 }
@@ -361,6 +345,52 @@ def fetch_hourly_forecast(lat, lon):
     except:
         return None
 
+# ── Axis helpers (no ** unpacking — avoids Plotly validator conflicts) ─────────
+def ax(grid=False, no_ticks=False, rng=None, nticks=None, tickangle=None,
+       title_text=None, title_color="#445566", overlaying=None, side=None,
+       showticklabels=True, extra=None):
+    """Build a clean Plotly axis dict without any dict-unpacking conflicts."""
+    d = dict(
+        tickfont=dict(family="JetBrains Mono", size=9, color="#556677"),
+        zeroline=False,
+        showgrid=grid,
+    )
+    if grid:
+        d["gridcolor"] = "rgba(0,255,225,0.05)"
+    if no_ticks or not showticklabels:
+        d["showticklabels"] = False
+    if rng is not None:
+        d["range"] = rng
+    if nticks is not None:
+        d["nticks"] = nticks
+    if tickangle is not None:
+        d["tickangle"] = tickangle
+    if title_text is not None:
+        d["title"] = dict(text=title_text, font=dict(size=9, color=title_color))
+    if overlaying is not None:
+        d["overlaying"] = overlaying
+    if side is not None:
+        d["side"] = side
+    if extra:
+        d.update(extra)
+    return d
+
+
+def pl(height=None, margin=None, extra=None):
+    """Return a clean PLOT_LAYOUT dict."""
+    d = dict(
+        template="plotly_dark",
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        font=dict(family="JetBrains Mono", color="#88aabb"),
+        margin=margin or dict(l=0, r=0, t=20, b=30),
+    )
+    if height is not None:
+        d["height"] = height
+    if extra:
+        d.update(extra)
+    return d
+
 # ── Traffic Simulation ────────────────────────────────────────────────────────
 def simulate_traffic(lat, lon, weather_code, precipitation, wind_speed, aqi, hour_override=None):
     now = datetime.now()
@@ -430,7 +460,8 @@ def simulate_traffic(lat, lon, weather_code, precipitation, wind_speed, aqi, hou
         })
 
     incidents = []
-    inc_types = ["🚗 Collision", "🚧 Road Work", "⚠️ Debris", "🚑 Emergency", "🔧 Breakdown", "🌊 Flooding", "⚡ Signal Fault", "🚛 Overturned Vehicle"]
+    inc_types = ["🚗 Collision", "🚧 Road Work", "⚠️ Debris", "🚑 Emergency",
+                 "🔧 Breakdown", "🌊 Flooding", "⚡ Signal Fault", "🚛 Overturned Vehicle"]
     for i in range(rng.randint(3, 7)):
         r4 = random.Random(seed + i * 31)
         incidents.append({
@@ -455,7 +486,7 @@ def simulate_traffic(lat, lon, weather_code, precipitation, wind_speed, aqi, hou
             rh = random.Random(seed + d_idx * 100 + h)
             row.append(min(max(int(bh + rh.uniform(-10, 10)), 0), 100))
         weekly[day] = row
-    
+
     monthly_trend = []
     for day_n in range(30):
         rm = random.Random(seed + day_n * 999)
@@ -596,21 +627,6 @@ body{{background:transparent;display:flex;justify-content:center;align-items:cen
   </div>
 </div>
 </body></html>"""
-
-# ── Plotly Theme ──────────────────────────────────────────────────────────────
-PLOT_LAYOUT = dict(
-    template="plotly_dark",
-    paper_bgcolor="rgba(0,0,0,0)",
-    plot_bgcolor="rgba(0,0,0,0)",
-    font=dict(family="JetBrains Mono", color="#88aabb"),
-    margin=dict(l=0, r=0, t=20, b=30),
-)
-GRID = dict(showgrid=True, gridcolor="rgba(0,255,225,0.05)", zeroline=False)
-NOGRID = dict(showgrid=False, zeroline=False)
-TICK = dict(tickfont=dict(family="JetBrains Mono", size=9, color="#556677"))
-
-def styled_axis(**kwargs):
-    return {**TICK, **kwargs}
 
 # ─────────────────────────────────────────────────────────────────────────────
 # SIDEBAR
@@ -895,13 +911,12 @@ with tabs[0]:
         fig.add_vline(x=now_hr, line_color="#ffaa00", line_dash="dash", line_width=1.5,
                       annotation_text="NOW", annotation_font=dict(color="#ffaa00", size=9))
         fig.update_layout(
-            **PLOT_LAYOUT, height=230,
+            **pl(height=230),
             legend=dict(orientation="h", y=1.08, font=dict(size=9, color="#667788")),
-            xaxis=dict(**NOGRID, **TICK, nticks=12),
-            yaxis=dict(**GRID, **TICK, range=[0,110], title="Congestion %", title_font=dict(size=9,color="#445566")),
-            yaxis2=dict(overlaying="y", side="right", range=[0,100], **TICK, showgrid=False,
-                        title="Speed km/h", title_font=dict(size=9,color="#445566")),
-            yaxis3=dict(overlaying="y", side="left", range=[0,6000], showgrid=False, showticklabels=False),
+            xaxis=ax(nticks=12),
+            yaxis=ax(grid=True, rng=[0, 110], title_text="Congestion %"),
+            yaxis2=ax(overlaying="y", side="right", rng=[0, 100], title_text="Speed km/h"),
+            yaxis3=dict(overlaying="y", side="left", range=[0, 6000], showgrid=False, showticklabels=False, zeroline=False),
         )
         st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
 
@@ -922,13 +937,14 @@ with tabs[0]:
             customdata=[[i["volume"], i["avg_speed"]] for i in ints],
             hovertemplate="<b>%{x}</b><br>Congestion: %{y}%<br>Volume: %{customdata[0]} veh/hr<br>Speed: %{customdata[1]} km/h<extra></extra>"
         ))
-        fig2.update_layout(**PLOT_LAYOUT, height=200,
-            xaxis=dict(**NOGRID, **TICK),
-            yaxis=dict(**GRID, **TICK, range=[0,125]),
-            showlegend=False)
+        fig2.update_layout(
+            **pl(height=200),
+            xaxis=ax(),
+            yaxis=ax(grid=True, rng=[0, 125]),
+            showlegend=False,
+        )
         st.plotly_chart(fig2, use_container_width=True, config={"displayModeBar": False})
 
-        # 6-hour prediction
         st.markdown('<div class="sh">🔮 6-HOUR PREDICTION</div>', unsafe_allow_html=True)
         fut_hrs = [(datetime.now() + timedelta(hours=i)).strftime("%H:%M") for i in range(1, 7)]
         fut_vals = []
@@ -1051,10 +1067,12 @@ with tabs[1]:
         r_val = np.corrcoef(sc_x, sc_y)[0,1]
         fig_sc.add_annotation(text=f"r = {r_val:.3f}", x=0.05, y=0.95, xref="paper", yref="paper",
             font=dict(size=11,color="#00ffe1",family="JetBrains Mono"), showarrow=False)
-        fig_sc.update_layout(**PLOT_LAYOUT, height=300,
-            xaxis=dict(**GRID, **TICK, title="Congestion %", title_font=dict(size=9,color="#445566")),
-            yaxis=dict(**GRID, **TICK, title="Speed km/h", title_font=dict(size=9,color="#445566")),
-            showlegend=False)
+        fig_sc.update_layout(
+            **pl(height=300),
+            xaxis=ax(grid=True, title_text="Congestion %"),
+            yaxis=ax(grid=True, title_text="Speed km/h"),
+            showlegend=False,
+        )
         st.plotly_chart(fig_sc, use_container_width=True, config={"displayModeBar": False})
 
     a3, a4 = st.columns(2)
@@ -1071,10 +1089,12 @@ with tabs[1]:
             ),
             hovertemplate="<b>%{x}</b><br>Volume: %{y} veh/hr<extra></extra>"
         ))
-        fig_v.update_layout(**PLOT_LAYOUT, height=250,
-            xaxis=dict(**NOGRID, **TICK, nticks=12),
-            yaxis=dict(**GRID, **TICK),
-            showlegend=False)
+        fig_v.update_layout(
+            **pl(height=250),
+            xaxis=ax(nticks=12),
+            yaxis=ax(grid=True),
+            showlegend=False,
+        )
         st.plotly_chart(fig_v, use_container_width=True, config={"displayModeBar": False})
 
     with a4:
@@ -1090,13 +1110,14 @@ with tabs[1]:
             marker=dict(size=5, color="#ff3060"),
             hovertemplate="<b>%{x}</b><br>Incidents: %{y}<extra></extra>"
         ))
-        fig_i.update_layout(**PLOT_LAYOUT, height=250,
-            xaxis=dict(**NOGRID, **TICK, nticks=12),
-            yaxis=dict(**GRID, **TICK, range=[0,8]),
-            showlegend=False)
+        fig_i.update_layout(
+            **pl(height=250),
+            xaxis=ax(nticks=12),
+            yaxis=ax(grid=True, rng=[0, 8]),
+            showlegend=False,
+        )
         st.plotly_chart(fig_i, use_container_width=True, config={"displayModeBar": False})
 
-    # Congestion gauge
     st.markdown('<div class="sh">⚡ CURRENT CONGESTION GAUGES</div>', unsafe_allow_html=True)
     g_cols = st.columns(4)
     gauge_data = [
@@ -1125,11 +1146,12 @@ with tabs[1]:
                 threshold=dict(line=dict(color="#ff3060",width=2), thickness=0.75, value=ti_crit),
             )
         ))
-        fig_g.update_layout(paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-            margin=dict(l=10,r=10,t=30,b=10), height=180)
+        fig_g.update_layout(
+            paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+            margin=dict(l=10,r=10,t=30,b=10), height=180,
+        )
         col.plotly_chart(fig_g, use_container_width=True, config={"displayModeBar": False})
 
-    # Road flow waterfall
     st.markdown('<div class="sh">🛣️ ROAD SEGMENT FLOW ANALYSIS</div>', unsafe_allow_html=True)
     rf = traffic["road_flows"]
     df_rf = pd.DataFrame(rf)
@@ -1141,13 +1163,14 @@ with tabs[1]:
         marker=dict(size=7,color=df_rf["congestion"].tolist(),
             colorscale=[[0,"#00ff88"],[0.5,"#ffaa00"],[1,"#ff3060"]],cmin=0,cmax=100),
         yaxis="y2"))
-    fig_rf.update_layout(**PLOT_LAYOUT, height=280,
+    fig_rf.update_layout(
+        **pl(height=280),
         legend=dict(orientation="h",y=1.08,font=dict(size=9,color="#667788")),
-        xaxis=dict(**NOGRID, **TICK, tickangle=-30),
-        yaxis=dict(**GRID, **TICK, title="Volume", title_font=dict(size=9,color="#445566")),
-        yaxis2=dict(overlaying="y",side="right",range=[0,110],**TICK,showgrid=False,
-            title="Congestion %",title_font=dict(size=9,color="#445566")),
-        barmode="group")
+        xaxis=ax(tickangle=-30),
+        yaxis=ax(grid=True, title_text="Volume"),
+        yaxis2=ax(overlaying="y", side="right", rng=[0, 110], title_text="Congestion %"),
+        barmode="group",
+    )
     st.plotly_chart(fig_rf, use_container_width=True, config={"displayModeBar": False})
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -1158,7 +1181,6 @@ with tabs[2]:
 
     r1, r2 = st.columns([2, 1])
     with r1:
-        # Simulated map using scatter on a grid
         st.markdown('<div class="sh">📍 INTERSECTION CONGESTION MAP</div>', unsafe_allow_html=True)
         rng_m = random.Random(int(lat*100+lon*100))
         map_data = []
@@ -1207,7 +1229,6 @@ with tabs[2]:
                 zeroline=False,
             ),
         )
-        # Add incident markers
         for inc in traffic["incidents"][:5]:
             fig_map.add_trace(go.Scatter(
                 x=[lon + inc["lon_offset"]],
@@ -1237,7 +1258,6 @@ with tabs[2]:
               </div>
             </div>""", unsafe_allow_html=True)
 
-    # Heatmap
     st.markdown('<div class="sh" style="margin-top:18px;">🔥 INTERSECTION FLOW HEATMAP</div>', unsafe_allow_html=True)
     ints_n = [i["name"] for i in traffic["intersections"]]
     metrics_n = ["Congestion", "Speed Index", "Volume Index", "Wait Time"]
@@ -1256,9 +1276,11 @@ with tabs[2]:
         hovertemplate="<b>%{x}</b><br>%{y}: %{z}<extra></extra>",
         colorbar=dict(tickfont=dict(family="JetBrains Mono",size=8,color="#667788"))
     ))
-    fig_hm.update_layout(**PLOT_LAYOUT, height=250,
-        xaxis=dict(**NOGRID,**TICK),
-        yaxis=dict(**NOGRID,**TICK))
+    fig_hm.update_layout(
+        **pl(height=250),
+        xaxis=ax(),
+        yaxis=ax(),
+    )
     st.plotly_chart(fig_hm, use_container_width=True, config={"displayModeBar": False})
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -1285,12 +1307,13 @@ with tabs[3]:
                 line=dict(color="#ffaa00",width=2), hovertemplate="%{x}: %{y}<extra>Wind</extra>"))
             fig_wf.add_trace(go.Scatter(x=df_fc["time"], y=df_fc["temp"], name="Temp °C", yaxis="y3",
                 line=dict(color="#ff3060",width=1.5,dash="dot"), hovertemplate="%{x}: %{y}°C<extra>Temp</extra>"))
-            fig_wf.update_layout(**PLOT_LAYOUT, height=280,
+            fig_wf.update_layout(
+                **pl(height=280),
                 legend=dict(orientation="h",y=1.1,font=dict(size=9,color="#667788")),
-                xaxis=dict(**NOGRID,**TICK,nticks=16,tickangle=-45),
-                yaxis=dict(**GRID,**TICK,range=[0,110]),
-                yaxis2=dict(overlaying="y",side="right",showgrid=False,**TICK),
-                yaxis3=dict(overlaying="y",side="right",showgrid=False,showticklabels=False),
+                xaxis=ax(nticks=16, tickangle=-45),
+                yaxis=ax(grid=True, rng=[0, 110]),
+                yaxis2=ax(overlaying="y", side="right"),
+                yaxis3=dict(overlaying="y", side="right", showgrid=False, showticklabels=False, zeroline=False),
             )
             st.plotly_chart(fig_wf, use_container_width=True, config={"displayModeBar": False})
 
@@ -1298,7 +1321,6 @@ with tabs[3]:
         st.markdown('<div class="sh">🌡️ 7-DAY TEMPERATURE & PRECIP</div>', unsafe_allow_html=True)
         if weather_data and "daily" in weather_data:
             dl = weather_data["daily"]
-            n7 = len(dl["time"])
             df_7 = pd.DataFrame({
                 "date": dl["time"],
                 "max_t": dl["temperature_2m_max"],
@@ -1317,15 +1339,15 @@ with tabs[3]:
             fig_7.add_trace(go.Bar(x=df_7["date"],y=df_7["precip"],name="Precip mm",
                 marker_color="rgba(0,255,225,0.3)",yaxis="y2",
                 hovertemplate="%{x}: %{y}mm<extra>Precip</extra>"))
-            fig_7.update_layout(**PLOT_LAYOUT, height=280,
+            fig_7.update_layout(
+                **pl(height=280),
                 legend=dict(orientation="h",y=1.1,font=dict(size=9,color="#667788")),
-                xaxis=dict(**NOGRID,**TICK),
-                yaxis=dict(**GRID,**TICK,title="Temp °C",title_font=dict(size=9,color="#445566")),
-                yaxis2=dict(overlaying="y",side="right",showgrid=False,**TICK,
-                    title="Precip mm",title_font=dict(size=9,color="#445566")))
+                xaxis=ax(),
+                yaxis=ax(grid=True, title_text="Temp °C"),
+                yaxis2=ax(overlaying="y", side="right", title_text="Precip mm"),
+            )
             st.plotly_chart(fig_7, use_container_width=True, config={"displayModeBar": False})
 
-    # Weather-traffic impact matrix
     st.markdown('<div class="sh">🔗 WEATHER → TRAFFIC IMPACT MATRIX</div>', unsafe_allow_html=True)
     impact_data = {
         "Clear Sky":     [0, 0, 0, 0, 0],
@@ -1349,12 +1371,13 @@ with tabs[3]:
         hovertemplate="<b>%{y}</b><br>%{x}: %{z}%<extra></extra>",
         colorbar=dict(tickfont=dict(family="JetBrains Mono",size=8,color="#667788"))
     ))
-    fig_imp.update_layout(**PLOT_LAYOUT, height=280,
-        xaxis=dict(**NOGRID,**TICK),
-        yaxis=dict(**NOGRID,**TICK))
+    fig_imp.update_layout(
+        **pl(height=280),
+        xaxis=ax(),
+        yaxis=ax(),
+    )
     st.plotly_chart(fig_imp, use_container_width=True, config={"displayModeBar": False})
 
-    # AQI trend
     if aq_data and "hourly" in aq_data:
         st.markdown('<div class="sh">🌫️ AQI 24H TREND</div>', unsafe_allow_html=True)
         aq_h = aq_data["hourly"]
@@ -1368,18 +1391,19 @@ with tabs[3]:
             })
             fig_aq = go.Figure()
             fig_aq.add_trace(go.Scatter(x=df_aq["time"],y=df_aq["aqi"],name="US AQI",
-                fill="tozeroy",line=dict(color=aqi_c,width=2),fillcolor=f"rgba(0,255,225,0.06)",
+                fill="tozeroy",line=dict(color=aqi_c,width=2),fillcolor="rgba(0,255,225,0.06)",
                 hovertemplate="%{x}: AQI %{y}<extra></extra>"))
             fig_aq.add_trace(go.Scatter(x=df_aq["time"],y=df_aq["pm25"],name="PM2.5",
                 line=dict(color="#b060ff",width=1.5,dash="dot"),yaxis="y2",
                 hovertemplate="%{x}: PM2.5 %{y}<extra></extra>"))
             fig_aq.add_hrect(y0=100,y1=400,fillcolor="rgba(255,48,96,0.05)",line_width=0)
-            fig_aq.update_layout(**PLOT_LAYOUT, height=240,
+            fig_aq.update_layout(
+                **pl(height=240),
                 legend=dict(orientation="h",y=1.1,font=dict(size=9,color="#667788")),
-                xaxis=dict(**NOGRID,**TICK),
-                yaxis=dict(**GRID,**TICK,title="AQI",title_font=dict(size=9,color="#445566")),
-                yaxis2=dict(overlaying="y",side="right",showgrid=False,**TICK,
-                    title="PM2.5 µg/m³",title_font=dict(size=9,color="#445566")))
+                xaxis=ax(),
+                yaxis=ax(grid=True, title_text="AQI"),
+                yaxis2=ax(overlaying="y", side="right", title_text="PM2.5 µg/m³"),
+            )
             st.plotly_chart(fig_aq, use_container_width=True, config={"displayModeBar": False})
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -1394,7 +1418,7 @@ with tabs[4]:
                     border-radius:10px;padding:14px 16px;margin-bottom:14px;">
           <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;color:rgba(176,96,255,.6);letter-spacing:2px;margin-bottom:8px;">NEXUS AI MODULE</div>
           <div style="font-size:.8rem;color:rgba(200,220,240,.7);line-height:1.7;">
-            Ask the AI analyst about current traffic conditions, route recommendations, 
+            Ask the AI analyst about current traffic conditions, route recommendations,
             incident analysis, weather impacts, or historical patterns.
           </div>
         </div>
@@ -1411,7 +1435,6 @@ with tabs[4]:
         ask_btn = acol1.button("🤖 Analyze", use_container_width=True)
         clr_btn = acol2.button("🗑️ Clear", use_container_width=True)
 
-        # Quick prompts
         st.markdown('<div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;">', unsafe_allow_html=True)
         quick_prompts = ["Best route now?", "Why is traffic high?", "When will it clear?", "Air quality advice?", "Incident summary"]
         for qp in quick_prompts:
@@ -1424,8 +1447,6 @@ with tabs[4]:
 
         if ask_btn and user_q:
             st.session_state.ai_chat_history.append({"role": "user", "content": user_q})
-            
-            # Build context for AI
             context = f"""You are NEXUS AI, an expert traffic intelligence analyst for {city}.
 
 Current conditions:
@@ -1454,29 +1475,25 @@ Be concise, data-driven, and professional. Use bullet points. Reference specific
                 if response.status_code == 200:
                     ai_reply = response.json()["content"][0]["text"]
                 else:
-                    ai_reply = f"API error {response.status_code}. Using local analysis: Based on current TI of {ti} ({ti_label(ti)}), {'significant delays expected during peak hours' if ti > 50 else 'traffic is moving reasonably well'}. {len(traffic['incidents'])} active incidents reported."
-            except Exception as e:
-                # Fallback local analysis
+                    ai_reply = f"API error {response.status_code}. TI={ti} ({ti_label(ti)}). {len(traffic['incidents'])} active incidents."
+            except Exception:
                 if "route" in user_q.lower() or "best" in user_q.lower():
                     ai_reply = f"**Route Recommendation for {city}:**\n\n• Current TI is {ti} ({ti_label(ti)})\n• Avoid: {traffic['road_flows'][0]['road']} ({traffic['road_flows'][0]['congestion']}% congested)\n• Recommended: Use {traffic['road_flows'][-1]['road']} ({traffic['road_flows'][-1]['congestion']}% flow)\n• ETA adjustment: +{eta_delay} min vs normal"
                 elif "incident" in user_q.lower():
                     ai_reply = f"**Active Incidents ({len(traffic['incidents'])}):**\n\n" + "\n".join([f"• {i['type']} on {i['road']} — {i['severity']} severity, +{i['delay']}min delay ({i['reported']})" for i in traffic['incidents'][:4]])
                 elif "air" in user_q.lower() or "aqi" in user_q.lower():
-                    ai_reply = f"**Air Quality Analysis:**\n\n• US AQI: {aqi_val} ({aqi_lbl})\n• PM2.5: {pm25:.1f} µg/m³ {'— Unhealthy' if pm25>35 else '— Acceptable'}\n• PM10: {pm10:.1f} µg/m³\n• {'Recommend wearing masks and limiting exposure.' if (aqi_val or 0)>100 else 'Air quality is acceptable for outdoor activities.'}"
+                    ai_reply = f"**Air Quality Analysis:**\n\n• US AQI: {aqi_val} ({aqi_lbl})\n• PM2.5: {pm25:.1f} µg/m³ {'— Unhealthy' if pm25>35 else '— Acceptable'}\n• PM10: {pm10:.1f} µg/m³\n• {'Recommend wearing masks.' if (aqi_val or 0)>100 else 'Air quality acceptable.'}"
                 else:
-                    ai_reply = f"**Traffic Analysis — {city}:**\n\n• Traffic Index: **{ti}/100** ({ti_label(ti)})\n• {len(traffic['incidents'])} active incidents causing avg +{int(np.mean([i['delay'] for i in traffic['incidents']]))} min delays\n• Worst area: {sorted(traffic['intersections'],key=lambda x:-x['congestion'])[0]['name']} at {sorted(traffic['intersections'],key=lambda x:-x['congestion'])[0]['congestion']}%\n• Weather impact: {'Significant — precipitation reducing capacity' if precip>2 else 'Minimal'}\n• Recommendation: {'Delay travel 1–2 hours' if ti>70 else 'Minor delays, use alternate routes where possible' if ti>40 else 'Normal conditions'}"
-            
+                    ai_reply = f"**Traffic Analysis — {city}:**\n\n• Traffic Index: **{ti}/100** ({ti_label(ti)})\n• {len(traffic['incidents'])} active incidents\n• Worst: {sorted(traffic['intersections'],key=lambda x:-x['congestion'])[0]['name']} at {sorted(traffic['intersections'],key=lambda x:-x['congestion'])[0]['congestion']}%\n• Weather impact: {'Significant' if precip>2 else 'Minimal'}\n• Recommendation: {'Delay travel 1–2 hours' if ti>70 else 'Minor delays expected' if ti>40 else 'Normal conditions'}"
+
             st.session_state.ai_chat_history.append({"role": "assistant", "content": ai_reply})
             st.rerun()
 
     with ai2:
         st.markdown('<div class="sh">📊 AI INSIGHTS PANEL</div>', unsafe_allow_html=True)
-        
-        # Automated insights
         insights = []
         peak_h = max(traffic["history"], key=lambda x: x["congestion"])
         low_h  = min(traffic["history"], key=lambda x: x["congestion"])
-        
         if ti > ti_crit:
             insights.append(("🚨", "Critical Load", f"Traffic index {ti} exceeds critical threshold. Immediate response recommended.", "red"))
         if precip > 3:
@@ -1485,10 +1502,8 @@ Be concise, data-driven, and professional. Use bullet points. Reference specific
             insights.append(("😷", "Air Quality Alert", f"AQI {aqi_val} may reduce driver comfort and reaction times.", "amber"))
         insights.append(("📈", "Peak Hour", f"Today's predicted peak at {peak_h['hour']} with {peak_h['congestion']}% congestion.", "blue"))
         insights.append(("📉", "Best Travel", f"Optimal travel window at {low_h['hour']} — only {low_h['congestion']}% congestion.", "green"))
-        
         high_cong_roads = sorted(traffic["road_flows"], key=lambda x: -x["congestion"])[:2]
         insights.append(("🛣️", "Bottleneck", f"{high_cong_roads[0]['road']} at {high_cong_roads[0]['congestion']}% — primary bottleneck.", "red" if high_cong_roads[0]["congestion"]>70 else "amber"))
-
         cls_map = {"red":"var(--red)","amber":"var(--amber)","green":"var(--green)","blue":"var(--c2)"}
         for icon, title, msg, cls in insights:
             st.markdown(f"""
@@ -1503,7 +1518,6 @@ Be concise, data-driven, and professional. Use bullet points. Reference specific
               </div>
             </div>""", unsafe_allow_html=True)
 
-        # Confidence scores
         st.markdown('<div class="sh" style="margin-top:8px;">📐 MODEL CONFIDENCE</div>', unsafe_allow_html=True)
         for metric, conf in [("Congestion Prediction", 87), ("Incident Probability", 72), ("ETA Accuracy", 81), ("Weather Correlation", 91)]:
             st.markdown(f"""
@@ -1523,7 +1537,6 @@ with tabs[5]:
     with sig1:
         st.markdown('<div class="sh">🚦 MASTER SIGNAL</div>', unsafe_allow_html=True)
         components.html(traffic_signal_html(sig_phase, sig_cd, ti), height=320)
-
         st.markdown('<div class="sh" style="margin-top:12px;">⚙️ SIGNAL CONFIG</div>', unsafe_allow_html=True)
         cycle_len = st.slider("Cycle Length (s)", 30, 180, 90)
         green_pct = st.slider("Green Phase %", 20, 70, 50)
@@ -1546,7 +1559,6 @@ with tabs[5]:
               <div style="font-size:.62rem;color:var(--lo);margin-top:2px;">{inter['congestion']}% · {inter['wait_time']}s wait</div>
             </div>""", unsafe_allow_html=True)
 
-        # Phase timeline
         st.markdown('<div class="sh" style="margin-top:12px;">⏱️ SIGNAL CYCLE VISUALIZATION</div>', unsafe_allow_html=True)
         phases_d  = [green_pct, 11, 100-green_pct-11]
         phases_l  = ["GREEN", "YELLOW", "RED"]
@@ -1559,10 +1571,25 @@ with tabs[5]:
             textfont=dict(family="JetBrains Mono",size=10,color="#000"),
             hovertemplate="%{text}<extra></extra>"
         ))
-        fig_ph.update_layout(**PLOT_LAYOUT, height=120, barmode="stack",
-            xaxis=dict(**NOGRID,**TICK,range=[0,100]),
-            yaxis=dict(**NOGRID,showticklabels=False),
-            showlegend=False, margin=dict(l=0,r=0,t=10,b=30))
+        fig_ph.update_layout(
+            template="plotly_dark",
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
+            font=dict(family="JetBrains Mono", color="#88aabb"),
+            height=120,
+            barmode="stack",
+            showlegend=False,
+            margin=dict(l=0, r=0, t=10, b=30),
+            xaxis=dict(
+                showgrid=False, zeroline=False,
+                range=[0, 100],
+                tickfont=dict(family="JetBrains Mono", size=9, color="#556677"),
+            ),
+            yaxis=dict(
+                showgrid=False, zeroline=False,
+                showticklabels=False,
+            ),
+        )
         st.plotly_chart(fig_ph, use_container_width=True, config={"displayModeBar": False})
 
     with sig3:
@@ -1570,7 +1597,6 @@ with tabs[5]:
         total_vol = sum(i["volume"] for i in traffic["intersections"])
         avg_wait  = int(np.mean([i["wait_time"] for i in traffic["intersections"]]))
         green_int = sum(1 for i in traffic["intersections"] if i["phase"]=="GREEN")
-
         for label, val, sub in [
             ("Total Volume", f"{total_vol:,}", "vehicles/hour"),
             ("Avg Wait Time", f"{avg_wait}s", "per intersection"),
@@ -1585,8 +1611,6 @@ with tabs[5]:
                           -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">{val}</div>
               <div class="kpi-sub">{sub}</div>
             </div>""", unsafe_allow_html=True)
-
-        # Throughput optimization score
         opt_score = max(0, 100 - ti + (green_pct - 50) * 0.5)
         st.markdown(f"""
         <div class="nx-card green" style="padding:14px;text-align:center;">
@@ -1612,9 +1636,10 @@ with tabs[6]:
         weather2  = fetch_weather(lat2, lon2)
         aq2       = fetch_air_quality(lat2, lon2)
         if weather2:
-            cur2  = weather2["current"]
-            temp2 = cur2.get("temperature_2m",0); wind2 = cur2.get("wind_speed_10m",0)
-            precip2=cur2.get("precipitation",0); w2code=cur2.get("weather_code",0); vis2=cur2.get("visibility",10000)
+            cur2   = weather2["current"]
+            temp2  = cur2.get("temperature_2m",0); wind2 = cur2.get("wind_speed_10m",0)
+            precip2= cur2.get("precipitation",0);  w2code= cur2.get("weather_code",0)
+            vis2   = cur2.get("visibility",10000)
         else:
             temp2=wind2=precip2=0; w2code=0; vis2=10000
         aqi2     = aq2["current"].get("us_aqi") if aq2 and "current" in aq2 else None
@@ -1622,7 +1647,6 @@ with tabs[6]:
         ti2      = traffic2["index"]
 
         st.markdown(f'<div class="sh">🆚 {city.upper()} vs {city2.upper()}</div>', unsafe_allow_html=True)
-        
         cmp_items = [
             ("Traffic Index",  ti,                      ti2,             "%",    True),
             ("Temperature",    f"{temp:.0f}",            f"{temp2:.0f}",  "°C",   False),
@@ -1650,25 +1674,25 @@ with tabs[6]:
               <div style="font-size:.6rem;color:var(--lo);">{city2.split(',')[0]}</div>
             </div>""", unsafe_allow_html=True)
 
-        # 24H comparison chart
         st.markdown('<div class="sh" style="margin-top:16px;">📈 24H CONGESTION COMPARISON</div>', unsafe_allow_html=True)
-        h1 = traffic["history"]; h2 = traffic2["history"]
+        h1_d = traffic["history"]; h2_d = traffic2["history"]
         fig_cmp = go.Figure()
-        fig_cmp.add_trace(go.Scatter(x=[h["hour"] for h in h1], y=[h["congestion"] for h in h1],
+        fig_cmp.add_trace(go.Scatter(x=[h["hour"] for h in h1_d], y=[h["congestion"] for h in h1_d],
             name=city.split(",")[0], line=dict(color="#00ffe1",width=2.5),
             fill="tozeroy",fillcolor="rgba(0,255,225,0.06)",
             hovertemplate="<b>%{x}</b> — %{y}%<extra>"+city.split(',')[0]+"</extra>"))
-        fig_cmp.add_trace(go.Scatter(x=[h["hour"] for h in h2], y=[h["congestion"] for h in h2],
+        fig_cmp.add_trace(go.Scatter(x=[h["hour"] for h in h2_d], y=[h["congestion"] for h in h2_d],
             name=city2.split(",")[0], line=dict(color="#ff3060",width=2.5),
             fill="tozeroy",fillcolor="rgba(255,48,96,0.06)",
             hovertemplate="<b>%{x}</b> — %{y}%<extra>"+city2.split(',')[0]+"</extra>"))
-        fig_cmp.update_layout(**PLOT_LAYOUT, height=300,
+        fig_cmp.update_layout(
+            **pl(height=300),
             legend=dict(orientation="h",y=1.1,font=dict(size=10,color="#667788")),
-            xaxis=dict(**NOGRID,**TICK,nticks=12),
-            yaxis=dict(**GRID,**TICK,range=[0,115]))
+            xaxis=ax(nticks=12),
+            yaxis=ax(grid=True, rng=[0, 115]),
+        )
         st.plotly_chart(fig_cmp, use_container_width=True, config={"displayModeBar": False})
 
-        # Radar comparison
         cc1, cc2 = st.columns(2)
         for col, city_n, tr in zip([cc1,cc2],[city,city2],[traffic,traffic2]):
             with col:
@@ -1679,11 +1703,13 @@ with tabs[6]:
                 fig_rc = go.Figure(go.Scatterpolar(r=rv+[rv[0]],theta=dirs+[dirs[0]],fill="toself",
                     line=dict(color="#00ffe1" if col==cc1 else "#ff3060",width=2),
                     fillcolor="rgba(0,255,225,0.08)" if col==cc1 else "rgba(255,48,96,0.08)"))
-                fig_rc.update_layout(paper_bgcolor="rgba(0,0,0,0)",plot_bgcolor="rgba(0,0,0,0)",
+                fig_rc.update_layout(
+                    paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
                     polar=dict(bgcolor="rgba(0,0,0,0)",
                         radialaxis=dict(range=[0,100],tickfont=dict(size=7,color="#445566"),gridcolor="rgba(0,255,225,0.06)"),
                         angularaxis=dict(tickfont=dict(size=9,color="#667788",family="JetBrains Mono"),gridcolor="rgba(0,255,225,0.06)")),
-                    margin=dict(l=20,r=20,t=20,b=20),height=250,showlegend=False)
+                    margin=dict(l=20,r=20,t=20,b=20), height=250, showlegend=False,
+                )
                 st.plotly_chart(fig_rc, use_container_width=True, config={"displayModeBar": False})
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -1691,27 +1717,27 @@ with tabs[6]:
 # ═══════════════════════════════════════════════════════════════════════════════
 with tabs[7]:
     st.markdown('<div class="sh">📅 HISTORICAL TRAFFIC ANALYSIS</div>', unsafe_allow_html=True)
-
-    # Weekly heatmap
-    h1, h2 = st.columns(2)
-    with h1:
+    h1_col, h2_col = st.columns(2)
+    with h1_col:
         st.markdown('<div class="sh">📅 7-DAY CONGESTION HEATMAP</div>', unsafe_allow_html=True)
         days = list(traffic["weekly"].keys())
         heat_hours = [f"{h:02d}:00" for h in range(24)]
         heat_data = [traffic["weekly"][d] for d in days]
-        fig_hm = go.Figure(go.Heatmap(
+        fig_whm = go.Figure(go.Heatmap(
             z=heat_data, x=heat_hours, y=days,
             colorscale=[[0,"#050e1a"],[0.25,"#00ff88"],[0.55,"#ffaa00"],[1,"#ff3060"]],
             zmin=0, zmax=100,
             hovertemplate="<b>%{y} %{x}</b><br>Congestion: %{z}%<extra></extra>",
             colorbar=dict(tickfont=dict(family="JetBrains Mono",size=8,color="#667788"))
         ))
-        fig_hm.update_layout(**PLOT_LAYOUT, height=280,
-            xaxis=dict(**NOGRID,**TICK,nticks=12),
-            yaxis=dict(**NOGRID,**TICK))
-        st.plotly_chart(fig_hm, use_container_width=True, config={"displayModeBar": False})
+        fig_whm.update_layout(
+            **pl(height=280),
+            xaxis=ax(nticks=12),
+            yaxis=ax(),
+        )
+        st.plotly_chart(fig_whm, use_container_width=True, config={"displayModeBar": False})
 
-    with h2:
+    with h2_col:
         st.markdown('<div class="sh">📈 30-DAY MONTHLY TREND</div>', unsafe_allow_html=True)
         df_mt = pd.DataFrame(traffic["monthly"])
         fig_mt = go.Figure()
@@ -1724,14 +1750,15 @@ with tabs[7]:
         fig_mt.add_trace(go.Bar(x=df_mt["day"],y=df_mt["incidents"],name="Incidents",
             marker_color="rgba(255,170,0,0.35)",yaxis="y2",
             hovertemplate="Day %{x}: %{y} incidents<extra></extra>"))
-        fig_mt.update_layout(**PLOT_LAYOUT, height=280,
+        fig_mt.update_layout(
+            **pl(height=280),
             legend=dict(orientation="h",y=1.1,font=dict(size=9,color="#667788")),
-            xaxis=dict(**NOGRID,**TICK,title="Day of Month",title_font=dict(size=9,color="#445566")),
-            yaxis=dict(**GRID,**TICK,range=[0,110]),
-            yaxis2=dict(overlaying="y",side="right",showgrid=False,**TICK,range=[0,50]))
+            xaxis=ax(title_text="Day of Month"),
+            yaxis=ax(grid=True, rng=[0, 110]),
+            yaxis2=ax(overlaying="y", side="right", rng=[0, 50]),
+        )
         st.plotly_chart(fig_mt, use_container_width=True, config={"displayModeBar": False})
 
-    # Day-of-week analysis
     st.markdown('<div class="sh">📊 DAY-OF-WEEK AVERAGE CONGESTION</div>', unsafe_allow_html=True)
     dow_avgs = {day: int(np.mean(vals)) for day, vals in traffic["weekly"].items()}
     dow_peaks = {day: max(vals) for day, vals in traffic["weekly"].items()}
@@ -1747,14 +1774,15 @@ with tabs[7]:
         mode="markers+lines",line=dict(color="#ff3060",width=1.5,dash="dot"),
         marker=dict(size=8,color="#ff3060"),
         hovertemplate="<b>%{x}</b><br>Peak: %{y}%<extra></extra>"))
-    fig_dow.update_layout(**PLOT_LAYOUT, height=270,
+    fig_dow.update_layout(
+        **pl(height=270),
         legend=dict(orientation="h",y=1.08,font=dict(size=9,color="#667788")),
-        xaxis=dict(**NOGRID,**TICK),
-        yaxis=dict(**GRID,**TICK,range=[0,110]),
-        showlegend=True)
+        xaxis=ax(),
+        yaxis=ax(grid=True, rng=[0, 110]),
+        showlegend=True,
+    )
     st.plotly_chart(fig_dow, use_container_width=True, config={"displayModeBar": False})
 
-    # Hour-by-hour table for selected day
     st.markdown('<div class="sh">🔍 HOURLY DETAIL</div>', unsafe_allow_html=True)
     sel_day = st.selectbox("Select Day", list(traffic["weekly"].keys()), index=datetime.now().weekday() % 7)
     day_data = []
@@ -1775,10 +1803,8 @@ with tabs[7]:
 # ═══════════════════════════════════════════════════════════════════════════════
 with tabs[8]:
     al1, al2 = st.columns([1.6, 1])
-
     with al1:
         st.markdown('<div class="sh">🔔 ACTIVE ALERTS</div>', unsafe_allow_html=True)
-        
         alerts = []
         if ti >= ti_crit:
             alerts.append(("CRITICAL", "🚨", f"Traffic Index {ti} — Critical congestion city-wide", "red", datetime.now().strftime("%H:%M:%S")))
@@ -1811,7 +1837,6 @@ with tabs[8]:
               </div>
             </div>""", unsafe_allow_html=True)
 
-        # Incident timeline
         st.markdown('<div class="sh" style="margin-top:16px;">📋 INCIDENT LOG</div>', unsafe_allow_html=True)
         df_inc = pd.DataFrame(traffic["incidents"])
         if not df_inc.empty:
@@ -1822,11 +1847,9 @@ with tabs[8]:
 
     with al2:
         st.markdown('<div class="sh">📊 ALERT STATISTICS</div>', unsafe_allow_html=True)
-        
         sev_counts = {"High":0,"Medium":0,"Low":0}
         for inc in traffic["incidents"]:
             sev_counts[inc["severity"]] = sev_counts.get(inc["severity"],0) + 1
-        
         fig_sev = go.Figure(go.Pie(
             values=list(sev_counts.values()),
             labels=list(sev_counts.keys()),
@@ -1835,10 +1858,12 @@ with tabs[8]:
             textfont=dict(family="JetBrains Mono",size=9),
             hovertemplate="%{label}: %{value}<extra></extra>"
         ))
-        fig_sev.update_layout(paper_bgcolor="rgba(0,0,0,0)",plot_bgcolor="rgba(0,0,0,0)",
-            margin=dict(l=0,r=0,t=0,b=0),height=180,
+        fig_sev.update_layout(
+            paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+            margin=dict(l=0,r=0,t=0,b=0), height=180,
             legend=dict(orientation="h",y=-0.1,font=dict(size=8,color="#667788",family="JetBrains Mono")),
-            annotations=[dict(text="SEVERITY",x=0.5,y=0.5,font=dict(size=9,color="#667788",family="JetBrains Mono"),showarrow=False)])
+            annotations=[dict(text="SEVERITY",x=0.5,y=0.5,font=dict(size=9,color="#667788",family="JetBrains Mono"),showarrow=False)],
+        )
         st.plotly_chart(fig_sev, use_container_width=True, config={"displayModeBar": False})
 
         st.markdown('<div class="sh">🚨 INCIDENT TYPE BREAKDOWN</div>', unsafe_allow_html=True)
@@ -1854,13 +1879,14 @@ with tabs[8]:
                 line=dict(color="rgba(0,0,0,.3)",width=1)),
             hovertemplate="%{y}: %{x}<extra></extra>"
         ))
-        fig_tc.update_layout(**PLOT_LAYOUT,height=220,
-            xaxis=dict(**NOGRID,**TICK),
-            yaxis=dict(**NOGRID,**TICK),
-            showlegend=False)
+        fig_tc.update_layout(
+            **pl(height=220),
+            xaxis=ax(),
+            yaxis=ax(),
+            showlegend=False,
+        )
         st.plotly_chart(fig_tc, use_container_width=True, config={"displayModeBar": False})
 
-        # System status
         st.markdown('<div class="sh">🖥️ SYSTEM STATUS</div>', unsafe_allow_html=True)
         systems = [
             ("Weather API", "ONLINE", "green"),
@@ -1885,7 +1911,6 @@ with tabs[8]:
 # ═══════════════════════════════════════════════════════════════════════════════
 with tabs[9]:
     cfg1, cfg2, cfg3 = st.columns(3)
-
     with cfg1:
         st.markdown('<div class="sh">📊 24H TRAFFIC HISTORY EXPORT</div>', unsafe_allow_html=True)
         df_exp = pd.DataFrame(traffic["history"])
@@ -1917,7 +1942,6 @@ with tabs[9]:
             f"nexus_incidents_{city.split(',')[0].lower()}_{datetime.now().strftime('%Y%m%d')}.csv","text/csv",
             use_container_width=True)
 
-    # Full JSON export
     st.markdown('<div class="sh" style="margin-top:16px;">📦 FULL DATA EXPORT (JSON)</div>', unsafe_allow_html=True)
     export_payload = {
         "meta": {"city": city, "lat": lat, "lon": lon, "timestamp": datetime.now().isoformat(), "version": "3.0"},
@@ -1933,9 +1957,7 @@ with tabs[9]:
         f"nexus_report_{city.split(',')[0].lower()}_{datetime.now().strftime('%Y%m%d_%H%M')}.json","application/json",
         use_container_width=False)
 
-    # Session summary
     st.markdown('<div class="sh" style="margin-top:16px;">📋 SESSION SUMMARY</div>', unsafe_allow_html=True)
-    sum_cols = st.columns(4)
     summary = [
         ("City", city, ""),
         ("Timestamp", datetime.now().strftime("%Y-%m-%d %H:%M"), ""),
@@ -1947,7 +1969,7 @@ with tabs[9]:
         ("Avg Speed", f"{int(np.mean([h['speed'] for h in traffic['history']]))} km/h", ""),
         ("AQI", str(aqi_val or "N/A"), ""),
         ("PM2.5", f"{pm25:.1f} µg/m³", ""),
-        ("ETA ({route_dist}km)", f"{eta_base+eta_delay} min", ""),
+        (f"ETA ({route_dist}km)", f"{eta_base+eta_delay} min", ""),
         ("Data Sources Active", "3/4" if not tomtom_key else "4/4", ""),
     ]
     sc_cols = st.columns(6)
